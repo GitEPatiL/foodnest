@@ -38,3 +38,22 @@ res.status(201).json({
 })
 
 }
+
+
+const loginUser = async (req,res)=>{
+    const {email,password}= req.body;
+
+    const user = await userModel.findOne({
+        email
+    })
+
+    if(!user){
+        res.status(400).json({
+            message:"Invalid email or password"
+        })
+    }
+
+}
+
+
+module.exports={registerUser,loginUser}
