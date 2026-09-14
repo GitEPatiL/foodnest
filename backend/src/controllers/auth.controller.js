@@ -13,7 +13,6 @@ async function registerUser(req, res) {
   });
 }
 
-
 const hashedPassword = await bcrypt.hash(password,10);
 
 const user = await userModel.create({
@@ -24,7 +23,7 @@ const user = await userModel.create({
 
 const token = jwt.sign({
     id:user._id,
-},"dbe686a76a8fbcfc738f823614c6a03554f9ac29")
+},process.env.JWT_SECRET)
 res.cookie("token",token);
 
 res.status(201).json({
@@ -48,12 +47,44 @@ const loginUser = async (req,res)=>{
     })
 
     if(!user){
-        res.status(400).json({
+        return res.status(400).json({
+            message:"Invalid email or password"
+        })
+    }
+    const isPasswordValid = await bcrypt.compare(password,user.password);
+
+    if (!isPasswordValid){
+        return res.status(400).json({
             message:"Invalid email or password"
         })
     }
 
+    const token = jwt.sign({
+        id:user._id,
+    },process.env.JWT_SECRET)
+
+    res.cookie("token",token);
+
+    res.status(200).json({
+        message:"User Logged in Successfully",
+        user:{
+            id:user._id,
+            email:user.email,
+            fullName:user.fullName
+        }
+    })
+
 }
 
+//logout api
 
-module.exports={registerUser,loginUser}
+const logoutUser = (req, res) => {
+    res.clearCookie("token");
+
+    res.status(200).json({
+        message: "User logged out successfully"
+    });
+};
+
+
+module.exports={registerUser,loginUser,logoutUser}
