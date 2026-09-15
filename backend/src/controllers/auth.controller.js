@@ -26,10 +26,11 @@ async function registerUser(req, res) {
   const token = jwt.sign(
     {
       id: user._id,
+      role: "user",
     },
     process.env.JWT_SECRET,
   );
-  res.cookie("token", token);
+  res.cookie("userToken", token);
 
   res.status(201).json({
     message: "User registered Successfully",
@@ -65,11 +66,12 @@ const loginUser = async (req, res) => {
   const token = jwt.sign(
     {
       id: user._id,
+      role: "user",
     },
     process.env.JWT_SECRET,
   );
 
-  res.cookie("token", token);
+  res.cookie("userToken", token);
 
   res.status(200).json({
     message: "User Logged in Successfully",
@@ -84,7 +86,7 @@ const loginUser = async (req, res) => {
 //logout api
 
 const logoutUser = (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("userToken");
 
   res.status(200).json({
     message: "User logged out successfully",
@@ -99,7 +101,7 @@ const registerFoodPartner = async (req, res) => {
     email,
   });
 
-  if (!isAccountAlreadyRegistered) {
+  if (isAccountAlreadyRegistered) {
     return res.status(400).json({
       message: "Food Partner acoout already exists",
     });
@@ -116,11 +118,12 @@ const registerFoodPartner = async (req, res) => {
   const token = jwt.sign(
     {
       id: foodPartner._id,
+      role: "foodPartner",
     },
     process.env.JWT_SECRET,
   );
 
-  res.cookie("token", token);
+  res.cookie("foodPartnerToken", token);
 
   res.status(201).json({
     message: "Food Partner registered successfully",
@@ -145,7 +148,7 @@ const loginFoodPartner = async (req, res) => {
     });
   }
 
-  const isPasswordValid = await bcrypt.compare(passwoprd, foodPartner.password);
+  const isPasswordValid = await bcrypt.compare(password, foodPartner.password);
 
   if (!isPasswordValid) {
     return res.status(400).json({
@@ -156,11 +159,12 @@ const loginFoodPartner = async (req, res) => {
   const token = jwt.sign(
     {
       id: foodPartner._id,
+      role: "foodPartner",
     },
     process.env.JWT_SECRET,
   );
 
-  res.cookie("token", token);
+  res.cookie("foodPartnerToken", token);
 
   res.status(201).json({
     message: "Food partener logged in successfuly",
@@ -172,7 +176,7 @@ const loginFoodPartner = async (req, res) => {
 };
 
 const logoutFoodPartner = async (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("foodPartnerToken");
 
   res.status(200).json({
     message: "food partner is logged out succesfully",
