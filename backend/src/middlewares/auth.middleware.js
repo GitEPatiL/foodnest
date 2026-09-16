@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 async function authFoodPartnerMiddleware(req,res,next){
         
-    const token = req.cokies.token;
+    const token = req.cookies.foodPartnerToken;
 
 
 
@@ -24,7 +24,7 @@ async function authFoodPartnerMiddleware(req,res,next){
         next()
 
     }catch(err){
-        return rs.status(401).json({
+        return res.status(401).json({
             message:"Invaid Token"
         })
     }
