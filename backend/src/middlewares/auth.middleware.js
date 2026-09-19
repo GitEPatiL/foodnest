@@ -25,4 +25,35 @@ async function authFoodPartnerMiddleware(req, res, next) {
   }
 }
 
-module.exports = { authFoodPartnerMiddleware };
+
+async function authUserMiddleware(req,res,next){
+
+  const token = req.cookies.userToken;
+
+  if(!token){
+    return res.status(401).json({
+      message:"Please Login first"
+    })
+  }
+
+  try{
+    const decoded = jwt.verify(userToken,process.env.JWT_SECRET);
+
+    const user = await userModel.findById(decoded.id);
+
+    req.user = user;
+
+    next()
+  }catch(err){
+
+    return res.status(401).json({
+      message:`Invalid Toekn ${err}`
+    })
+
+  }
+
+}
+
+module.exports = { authFoodPartnerMiddleware,authUserMiddleware };
+
+
