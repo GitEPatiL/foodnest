@@ -25,7 +25,18 @@ const createFood = async (req, res) => {
 };
 
 const getFood = async (req, res) => {
-  
+  try {
+    const data = await foodModel.find();
+
+    res.status(200).json({
+      data,
+    });
+    console.log(data);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
 };
 
 module.exports = {
