@@ -1,11 +1,8 @@
-import React from 'react'
+import AppRoutes from './routes/AppRoutes'
+import './index.css'
 
 const App = () => {
-  return (
-    <div>
-        <h1>`I Love you 3000`</h1>
-    </div>
-  )
+  return <AppRoutes />
 }
 
 export default App
