@@ -1,4 +1,4 @@
-# Zomato Clone API 🍔🚀
+# FoodNest Clone API 🍔🚀
 
 A full-stack food delivery application backend built with Node.js, Express, and MongoDB.
 

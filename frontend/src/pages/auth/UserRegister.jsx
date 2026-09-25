@@ -18,7 +18,7 @@ const UserRegister = () => {
               <span className="text-3xl">🍕</span>
             </div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Create an account</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Join millions of food lovers on Zomato</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Join millions of food lovers on FoodNest</p>
           </div>
 
           {/* Form — fields match userSchema: fullName, email, password */}
@@ -80,7 +80,7 @@ const UserRegister = () => {
                 className="mt-0.5 w-4 h-4 rounded border-gray-300 dark:border-gray-600 accent-orange-500 cursor-pointer flex-shrink-0"
               />
               <label htmlFor="terms" className="text-sm text-gray-600 dark:text-gray-400 cursor-pointer select-none leading-relaxed">
-                I agree to Zomato's{' '}
+                I agree to FoodNest's{' '}
                 <a href="#" className="text-orange-500 hover:text-orange-600 dark:text-orange-400 font-medium underline">Terms of Service</a>
                 {' '}and{' '}
                 <a href="#" className="text-orange-500 hover:text-orange-600 dark:text-orange-400 font-medium underline">Privacy Policy</a>

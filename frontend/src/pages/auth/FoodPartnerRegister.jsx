@@ -154,7 +154,7 @@ const FoodPartnerRegister = () => {
                 htmlFor="partner-terms"
                 className="text-sm text-gray-600 dark:text-gray-400 cursor-pointer select-none leading-relaxed"
               >
-                I agree to Zomato's{" "}
+                I agree to FoodNest's{" "}
                 <a
                   href="#"
                   className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 font-medium underline"

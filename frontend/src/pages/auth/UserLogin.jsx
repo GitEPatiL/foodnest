@@ -18,7 +18,7 @@ const UserLogin = () => {
               <span className="text-3xl">🍽️</span>
             </div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Welcome back!</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Sign in to your Zomato account</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Sign in to your FoodNest account</p>
           </div>
 
           {/* Form — fields match loginUser controller: email, password */}
