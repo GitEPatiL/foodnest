@@ -1,4 +1,4 @@
-# FoodNest Clone API 🍔🚀
+# FoodNest API 🍔🚀
 
 A full-stack food delivery application backend built with Node.js, Express, and MongoDB.
 
@@ -70,7 +70,7 @@ backend/
 
 ## 🔮 Future Enhancements & Ideas
 
-Here are some features you can implement next to make this clone more robust and closer to a production-ready application:
+Here are some features you can implement next to make this application more robust and closer to a production-ready application:
 
 - [ ] **Order Management System**: Allow users to place orders, and food partners to accept/reject and update order statuses (e.g., Preparing, Out for Delivery, Delivered).
 - [ ] **Payment Gateway Integration**: Integrate Stripe or Razorpay to simulate real payments.
