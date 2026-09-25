@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const FoodPartnerRegister = () => {
   return (
@@ -11,7 +11,6 @@ const FoodPartnerRegister = () => {
 
       <div className="w-full max-w-md">
         <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-white/50 dark:border-gray-700/50 rounded-3xl shadow-2xl shadow-emerald-100/50 dark:shadow-black/40 p-8">
-
           {/* Partner Badge */}
           <div className="flex justify-center mb-6">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 text-xs font-semibold uppercase tracking-wider border border-emerald-200 dark:border-emerald-800">
@@ -24,26 +23,51 @@ const FoodPartnerRegister = () => {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 shadow-lg shadow-emerald-500/30 mb-4">
               <span className="text-3xl">🍴</span>
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Register Your Restaurant</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Start reaching millions of hungry customers</p>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+              Register Your Restaurant
+            </h1>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              Start reaching millions of hungry customers
+            </p>
           </div>
 
-          {/* Form — fields match registerFoodPartner controller: name, email, password */}
+          {/* Form — fields match registerFoodPartner controller */}
           <form className="space-y-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {/* name */}
+              <div className="space-y-1.5">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Owner Name
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 text-lg">
+                    👤
+                  </span>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="e.g. John Doe"
+                    className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 dark:focus:border-emerald-400 transition-all duration-200"
+                  />
+                </div>
+              </div>
 
-            {/* name */}
-            <div className="space-y-1.5">
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Restaurant / Owner Name
-              </label>
-              <div className="relative">
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 text-lg">🏪</span>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="e.g. Spice Garden"
-                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 dark:focus:border-emerald-400 transition-all duration-200"
-                />
+              {/* foodPartnerName */}
+              <div className="space-y-1.5">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Restaurant Name
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 text-lg">
+                    🏪
+                  </span>
+                  <input
+                    type="text"
+                    name="foodPartnerName"
+                    placeholder="e.g. Spice Garden"
+                    className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 dark:focus:border-emerald-400 transition-all duration-200"
+                  />
+                </div>
               </div>
             </div>
 
@@ -53,11 +77,49 @@ const FoodPartnerRegister = () => {
                 Email Address
               </label>
               <div className="relative">
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 text-lg">📧</span>
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 text-lg">
+                  📧
+                </span>
                 <input
                   type="email"
                   name="email"
                   placeholder="restaurant@example.com"
+                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 dark:focus:border-emerald-400 transition-all duration-200"
+                />
+              </div>
+            </div>
+
+            {/* phone */}
+            <div className="space-y-1.5">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Phone Number
+              </label>
+              <div className="relative">
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 text-lg">
+                  📱
+                </span>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+1 (234) 567-8900"
+                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 dark:focus:border-emerald-400 transition-all duration-200"
+                />
+              </div>
+            </div>
+
+            {/* address */}
+            <div className="space-y-1.5">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Address
+              </label>
+              <div className="relative">
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 text-lg">
+                  📍
+                </span>
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="123 Food Street, City, Country"
                   className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 dark:focus:border-emerald-400 transition-all duration-200"
                 />
               </div>
@@ -69,7 +131,9 @@ const FoodPartnerRegister = () => {
                 Password
               </label>
               <div className="relative">
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 text-lg">🔒</span>
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 text-lg">
+                  🔒
+                </span>
                 <input
                   type="password"
                   name="password"
@@ -86,11 +150,24 @@ const FoodPartnerRegister = () => {
                 type="checkbox"
                 className="mt-0.5 w-4 h-4 rounded border-gray-300 dark:border-gray-600 accent-emerald-600 cursor-pointer flex-shrink-0"
               />
-              <label htmlFor="partner-terms" className="text-sm text-gray-600 dark:text-gray-400 cursor-pointer select-none leading-relaxed">
-                I agree to Zomato's{' '}
-                <a href="#" className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 font-medium underline">Partner Terms</a>
-                {' '}and{' '}
-                <a href="#" className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 font-medium underline">Commission Policy</a>
+              <label
+                htmlFor="partner-terms"
+                className="text-sm text-gray-600 dark:text-gray-400 cursor-pointer select-none leading-relaxed"
+              >
+                I agree to Zomato's{" "}
+                <a
+                  href="#"
+                  className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 font-medium underline"
+                >
+                  Partner Terms
+                </a>{" "}
+                and{" "}
+                <a
+                  href="#"
+                  className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 font-medium underline"
+                >
+                  Commission Policy
+                </a>
               </label>
             </div>
 
@@ -105,21 +182,27 @@ const FoodPartnerRegister = () => {
 
           {/* Footer */}
           <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
-            Already a partner?{' '}
-            <Link to="/FoodPartner/login" className="font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 transition-colors">
+            Already a partner?{" "}
+            <Link
+              to="/FoodPartner/login"
+              className="font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 transition-colors"
+            >
               Sign in here
             </Link>
           </p>
           <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-3">
-            Looking for the customer app?{' '}
-            <Link to="/user/register" className="text-emerald-500 hover:text-emerald-600 underline transition-colors">
+            Looking for the customer app?{" "}
+            <Link
+              to="/user/register"
+              className="text-emerald-500 hover:text-emerald-600 underline transition-colors"
+            >
               Register as a user
             </Link>
           </p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FoodPartnerRegister
+export default FoodPartnerRegister;
