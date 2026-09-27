@@ -1,8 +1,31 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const UserLogin = () => {
+  const navigate = useNavigate();
+  const [formData,setFormData]=useState({
+    email:"",
+    password:""
+  })
+
+  const handleLogin = async (e)=>{
+       e.preventDefault();
+       try{
+             const response = await axios.post("http://localhost:3000/api/auth/user/login",formData,{withCredentials:true})
+
+             console.log("logged in successfully",response.data)
+             navigate('/');
+       }catch(error){
+        console.log("username and password are wrong",error)
+
+       }
+  }
+
+  
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-red-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 flex items-center justify-center p-4">
       {/* Background blobs */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-orange-400/20 dark:bg-orange-500/10 blur-3xl" />
@@ -22,7 +45,7 @@ const UserLogin = () => {
           </div>
 
           {/* Form — fields match loginUser controller: email, password */}
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleLogin}>
 
             {/* email */}
             <div className="space-y-1.5">
@@ -34,6 +57,7 @@ const UserLogin = () => {
                 <input
                   type="email"
                   name="email"
+                  onChange={(e)=>setFormData({...formData,[e.target.name]:e.target.value})}
                   placeholder="you@example.com"
                   className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 dark:focus:border-orange-400 transition-all duration-200"
                 />
@@ -55,6 +79,7 @@ const UserLogin = () => {
                 <input
                   type="password"
                   name="password"
+                  onChange={(e)=>setFormData({...formData,[e.target.name]:e.target.value})}
                   placeholder="Enter your password"
                   className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 dark:focus:border-orange-400 transition-all duration-200"
                 />
