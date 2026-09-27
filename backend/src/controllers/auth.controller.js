@@ -34,6 +34,7 @@ async function registerUser(req, res) {
 
   res.status(201).json({
     message: "User registered Successfully",
+    token,
     user: {
       _id: user._id,
       email: user.email,
@@ -75,6 +76,7 @@ const loginUser = async (req, res) => {
 
   res.status(200).json({
     message: "User Logged in Successfully",
+    token,
     user: {
       id: user._id,
       email: user.email,
@@ -130,6 +132,7 @@ const registerFoodPartner = async (req, res) => {
 
   res.status(201).json({
     message: "Food Partner registered successfully",
+    token,
     foodPartner: {
       _id: foodPartner._id,
       email: foodPartner.email,
@@ -171,6 +174,7 @@ const loginFoodPartner = async (req, res) => {
 
   res.status(201).json({
     message: "Food partener logged in successfuly",
+    token,
     foodPartner: {
       _id: foodPartner._id,
       name: foodPartner.name,

@@ -15,6 +15,10 @@ const UserLogin = () => {
              const response = await axios.post("http://localhost:3000/api/auth/user/login",formData,{withCredentials:true})
 
              console.log("logged in successfully",response.data)
+
+            const token = response.data.token;
+            console.log("token: " + token);
+
              navigate('/');
        }catch(error){
         console.log("username and password are wrong",error)
