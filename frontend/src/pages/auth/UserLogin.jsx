@@ -16,10 +16,6 @@ const UserLogin = () => {
 
              console.log("logged in successfully",response.data)
 
-            const token = response.data.token;
-            // console.log("token: " + token);
-
-            localStorage.setItem("token",token)
             localStorage.setItem("user",JSON.stringify(response.data.user))
 
              navigate('/');

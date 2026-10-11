@@ -21,12 +21,14 @@ const UserRegister = () => {
         { withCredentials: true },
       );
 
-      console.log(`Registration Successful, ${response.data}`);
+      console.log(`Registration Successful`, response.data);
+
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+
+      navigate("/");
     } catch (error) {
       console.log(`Registration failed ${error}`);
     }
-
-    navigate("/")
   };
 
   return (
